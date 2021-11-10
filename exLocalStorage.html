@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício de Local Storage</title>
+    <style media="screen">
+        input button {
+            padding: 7px;
+            height: 40px;
+        }
+        fieldset {
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>Local Storage</h2>
+    <fieldset>
+        <legend>Insira as informações</legend>
+        <input id="inpkey" type="text" placeholder="Insira a chave...">
+        <input id="inpValue" type="text" placeholder="Insira Valores...">
+        <button type="button" id="btnInsert">Insira as informações</button>
+    </fieldset>
+    <fieldset>
+        <legend>Local Storage</legend>
+        <div id="lsOutput"></div>
+    </fieldset>
+</body>
+<script>
+    const inpkey = document.getElementById("inpkey");
+    const inpValue = document.getElementById("inpvalue");
+    const btnInsert = document.getElementById("btnInsert");
+    const lsOutput = document.getElementById("lsOutput");
+
+    btnInsert.onclick = function() {
+        const key = inpkey.value;
+        const value = inpValue.value;
+
+
+        if (key && value) {
+            localStorage.setItem(key, value);
+            location.reload();
+        }
+    };
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        const value = localStorage.getItem(key);
+
+        lsOutput.innerHTML += `${key}: ${value}`;
+    }
+</script>
+</html>

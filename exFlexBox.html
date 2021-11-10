@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flex-container {
+  display: flex;
+  flex-direction: column-reverse;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.flex-item {
+  background: tomato;
+  padding: 5px;
+  width: 200px;
+  height: 150px;
+  margin-top: 10px;
+  line-height: 150px;
+  color: white;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+}
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;"><button onclick="adiciona()">Adicionar item</button></h1>
+    <ul class="flex-container">
+        <li class="flex-item">1</li>
+        <li class="flex-item">2</li>
+        <li class="flex-item">3</li>
+        <li class="flex-item">4</li>
+        <li class="flex-item">5</li>
+        <li class="flex-item">6</li>
+      </ul>
+</body>
+<script>
+    function adiciona (){
+        //criar elemento
+        var quantidadeDeItens = document.getElementsByClassName("flex-item").length;
+        var ultimoElemento = document.getElementsByClassName("flex-item")[quantidadeDeItens - 1];
+        var numero = +ultimoElemento.textContent +1;
+
+        //criar a tag, preencher com valor
+        var novoItem = ` <li class="flex-item">${numero}</li>`;
+
+        //inserir elemento
+        var itens = document.getElementsByClassName("flex-container")[0].innerHTML = itens;
+        itens += novoItem;
+        document.getElementsByClassName("flex-container")[0].innerHTML = itens;
+    }
+</script>
+</html>
